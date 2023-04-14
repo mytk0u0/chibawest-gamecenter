@@ -12,5 +12,5 @@ tfenv install $(cat .terraform-version)
 .vscode/settings_examle.jsonをコピーして使ってください
 
 ```bash
-cp .vscode/settings_examle.json .vscode/settings.json
+cp .vscode/settings_example.json .vscode/settings.json
 ```

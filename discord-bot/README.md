@@ -2,7 +2,7 @@
 
 ## セットアップ (macOS)
 
-前提として[pyenv](https://github.com/pyenv/pyenv)と[poetry](https://python-poetry.org/docs/)のコマンドを使えるようにしておいてください。  
+前提として[pyenv](https://github.com/pyenv/pyenv)と[poetry](https://python-poetry.org/docs/)のコマンドを使えるようにしておいてください。
 
 ```bash
 pyenv install 3.10.6
@@ -15,4 +15,12 @@ poetry install
 
 ```python
 poetry run python -m discord_bot.main
+```
+
+## VSCodeの設定
+
+.vscode/settings_examle.jsonをコピーして使ってください
+
+```bash
+cp .vscode/settings_example.json .vscode/settings.json
 ```
