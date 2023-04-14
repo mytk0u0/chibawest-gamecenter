@@ -11,6 +11,8 @@ python = "^3.10"
 google-api-python-client = "^2.85.0"
 discord = "^2.2.2"
 google-cloud-secret-manager = "^2.16.1"
+fastapi = "^0.95.1"
+uvicorn = "^0.21.1"
 
 
 [tool.poetry.group.dev.dependencies]

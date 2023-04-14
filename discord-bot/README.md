@@ -6,15 +6,9 @@
 
 ```bash
 pyenv install 3.10.6
-poetry self update
+poetry self update 1.4.2
 poetry config virtualenvs.in-project true
 poetry install
-```
-
-## 動作確認の手順
-
-```python
-poetry run python -m discord_bot.main
 ```
 
 ## VSCodeの設定
@@ -23,4 +17,16 @@ poetry run python -m discord_bot.main
 
 ```bash
 cp .vscode/settings_example.json .vscode/settings.json
+```
+
+## 動作確認の手順
+
+```bash
+poetry run uvicorn main:app --host 0.0.0.0 --port 8080 --reload
+```
+
+## デプロイ
+
+```bash
+make deploy
 ```
