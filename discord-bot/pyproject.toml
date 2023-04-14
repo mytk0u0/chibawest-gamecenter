@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "discord-bot"
+version = "0.1.0"
+description = "discord-bot for chibawest-gamecenter"
+authors = ["mytk0u0 <mstk344@gmail.com>"]
+readme = "README.md"
+packages = [{include = "discord_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+google-api-python-client = "^2.85.0"
+discord = "^2.2.2"
+google-cloud-secret-manager = "^2.16.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+mypy = "^1.2.0"
+flake8 = "^6.0.0"
+pyproject-flake8 = "^6.0.0.post1"
+ipython = "^8.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+max-line-length = 120
+
+[tool.black]
+line-length = 120
