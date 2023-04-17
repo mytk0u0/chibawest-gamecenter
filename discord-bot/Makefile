@@ -12,7 +12,7 @@ deploy:
 		--min-instances 1 \
 		--max-instances 1 \
 		--cpu 1 \
-		--memory 256MB \
+		--memory 512Mi \
 		--no-allow-unauthenticated \
 		--no-cpu-throttling \
 		--service-account chibawest-gamecenter-bot@chibawest-gamecenter.iam.gserviceaccount.com
