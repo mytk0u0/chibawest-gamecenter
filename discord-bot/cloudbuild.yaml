@@ -1,11 +1,14 @@
 steps:
-  - name: "gcr.io/cloud-builders/docker"
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
     args:
       [
-        "build",
-        "-t",
-        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}",
-        "./chibawest-gamecenter-bot",
+        "builds",
+        "submit",
+        "--project",
+        "${_PROJECT_ID}",
+        "--tag",
+        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}",
       ]
   - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
     entrypoint: gcloud
@@ -17,11 +20,11 @@ steps:
         "--project",
         "${_PROJECT_ID}",
         "--image",
-        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}",
+        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/${_IMAGE}:${_TAG}",
         "--region",
         "${_REGION}",
         "--set-env-vars",
-        "IS_PRODUCTION=1".
+        "IS_PRODUCTION=1",
         "--set-secrets",
         "/etc/discord-bot-api-token/secret=discord-bot-api-token:latest",
         "--min-instances",
@@ -37,10 +40,9 @@ steps:
         "--service-account",
         "chibawest-gamecenter-bot@chibawest-gamecenter.iam.gserviceaccount.com",
       ]
-images:
-  - "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}"
 substitutions:
-  _REGION: asia-northeast1
   _PROJECT_ID: chibawest-gamecenter
-  _REPOSITORY: discord-bot
+  _REGION: asia-northeast1
+  _REPOSITORY: chibawest-gamecenter
+  _IMAGE: discord-bot
   _TAG: latest

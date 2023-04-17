@@ -29,6 +29,8 @@ poetry run uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 
 ## デプロイ
 
+masterのmainリポジトリが更新されると自動でデプロイされますが、以下のように手動でデプロイすることもできます (やっていることは同じです)。
+
 ```bash
-make deploy
+gcloud builds submit . --config cloudbuild.yaml
 ```
