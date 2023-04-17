@@ -10,3 +10,11 @@ provider "google" {
   zone    = local.zone
 }
 
+resource "google_artifact_registry_repository" "chibawest_gamecenter_repos" {
+  provider      = google-beta
+  project       = local.project
+  location      = local.region
+  repository_id = "chibawest-gamecenter"
+  description   = "Container Repository of Chibawest Gamecenter Bot"
+  format        = "DOCKER"
+}

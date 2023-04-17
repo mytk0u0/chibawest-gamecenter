@@ -30,12 +30,3 @@ resource "google_project_iam_member" "invoker_iam" {
   role    = "roles/run.invoker"
   member  = "serviceAccount:${google_service_account.chibawest_gamecenter_bot_account.email}"
 }
-
-resource "google_artifact_registry_repository" "chibawest_gamecenter_bot_repos" {
-  provider      = google-beta
-  project       = local.project
-  location      = local.region
-  repository_id = "chibawest-gamecenter-bot-repos"
-  description   = "Container Repository of Chibawest Gamecenter Bot"
-  format        = "DOCKER"
-}
