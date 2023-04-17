@@ -11,5 +11,8 @@ deploy:
 		--set-secrets "/etc/discord-bot-api-token/secret=discord-bot-api-token:latest" \
 		--min-instances 1 \
 		--max-instances 1 \
+		--cpu 1 \
+		--memory 256MB \
 		--no-allow-unauthenticated \
+		--no-cpu-throttling \
 		--service-account chibawest-gamecenter-bot@chibawest-gamecenter.iam.gserviceaccount.com
