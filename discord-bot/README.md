@@ -1,5 +1,7 @@
 # discord-bot
 
+とくれせんたぼーびのDiscord Botの中身です。
+
 ## セットアップ (macOS)
 
 前提として[pyenv](https://github.com/pyenv/pyenv)と[poetry](https://python-poetry.org/docs/)のコマンドを使えるようにしておいてください。
