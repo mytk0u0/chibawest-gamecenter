@@ -1,0 +1,46 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args:
+      [
+        "build",
+        "-t",
+        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}",
+        "./chibawest-gamecenter-bot",
+      ]
+  - name: "gcr.io/google.com/cloudsdktool/cloud-sdk"
+    entrypoint: gcloud
+    args:
+      [
+        "run",
+        "deploy",
+        "discord-bot",
+        "--project",
+        "${_PROJECT_ID}",
+        "--image",
+        "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}",
+        "--region",
+        "${_REGION}",
+        "--set-env-vars",
+        "IS_PRODUCTION=1".
+        "--set-secrets",
+        "/etc/discord-bot-api-token/secret=discord-bot-api-token:latest",
+        "--min-instances",
+        "1",
+        "--max-instances",
+        "1",
+        "--cpu",
+        "1",
+        "--memory",
+        "512Mi",
+        "--no-allow-unauthenticated",
+        "--no-cpu-throttling",
+        "--service-account",
+        "chibawest-gamecenter-bot@chibawest-gamecenter.iam.gserviceaccount.com",
+      ]
+images:
+  - "${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPOSITORY}/discord-bot:${_TAG}"
+substitutions:
+  _REGION: asia-northeast1
+  _PROJECT_ID: chibawest-gamecenter
+  _REPOSITORY: discord-bot
+  _TAG: latest

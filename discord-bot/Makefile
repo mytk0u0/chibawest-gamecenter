@@ -6,9 +6,9 @@ build:
 		--tag gcr.io/chibawest-gamecenter/discord-bot
 
 deploy:
-	gcloud run deploy chibawest-gamecenter-bot \
+	gcloud run deploy discord-bot \
 		--project chibawest-gamecenter \
-		--region us-central1 \
+		--region asia-northeast1 \
 		--image gcr.io/chibawest-gamecenter/discord-bot \
 		--set-env-vars "IS_PRODUCTION=1" \
 		--set-secrets "/etc/discord-bot-api-token/secret=discord-bot-api-token:latest" \
