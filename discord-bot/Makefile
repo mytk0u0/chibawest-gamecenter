@@ -1,8 +1,11 @@
-.PHONY: deploy
-deploy:
+.PHONY: build, deploy
+
+build:
 	gcloud builds submit \
 		--project chibawest-gamecenter \
 		--tag gcr.io/chibawest-gamecenter/discord-bot
+
+deploy:
 	gcloud run deploy chibawest-gamecenter-bot \
 		--project chibawest-gamecenter \
 		--region us-central1 \
